@@ -1,0 +1,113 @@
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+
+#define SCREEN_WIDTH 128 // display display panjang dalam pixels
+#define SCREEN_HEIGHT 64 // display display lebar dalam pixels
+
+#define SENSOR_PIN A1   // pin sensor DS18B20
+#define BUZZER_PIN 12   // pin buzzer
+
+#define display_RESET     -1 // Reset pin 
+#define SCREEN_ADDRESS 0x3C ///alamat i2c oled 
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, display_RESET);
+
+OneWire oneWire(SENSOR_PIN);         // setup a oneWire 
+DallasTemperature tempSensor(&oneWire); // pass oneWire 
+
+
+
+unsigned long previousMillis = 0;
+
+String tempString,tempString1;
+float batas = 35;     // batas suhu biar alarm
+float tempCelsius;
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(BUZZER_PIN,OUTPUT);
+  digitalWrite(BUZZER_PIN,LOW);
+
+  // initialize display display with address 0x3C for 128x64
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    while (true);
+  }
+
+  delay(2000);         // wait for initializing
+  display.clearDisplay(); // clear display
+
+  display.setTextSize(1);          // Ukuran Teks
+  display.setTextColor(WHITE);     // Warna Teks
+  
+  displayDisplayCenter("Aflah Nurcholis", 4);
+  displayDisplayCenter("085747272461",56);
+
+  display.setTextSize(2);
+  display.setCursor(0, 32);        // posisi di display
+
+  tempSensor.begin();     // inisialisasi sensor
+  tempString.reserve(10); // to avoid fragmenting memory when using String
+
+
+  
+
+  
+}
+
+void loop() {
+  tempSensor.requestTemperatures();             // send the command to get temperatures
+  tempCelsius = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
+
+  
+  tempString  = String(tempCelsius, 2); // two decimal places
+  tempString += (char)247;
+  tempString += "C";
+  
+  //biar ketumpuk hitam dulu jika suhu nya berubah
+  if(tempString != tempString1)
+  {
+  display.setTextColor(BLACK);
+  displayDisplayCenter(tempString1,28);
+  }
+  
+  tempString1= tempString; 
+  Serial.println(tempString); // print the temperature in Celsius to Serial Monitor
+  
+  //lanjut tulis warna putih
+  display.setTextColor(WHITE);
+  displayDisplayCenter(tempString,28);
+
+
+  if( tempCelsius >= batas)  //cek alarm vs buzzer
+   {
+
+    digitalWrite(BUZZER_PIN,HIGH);
+    delay(200);
+    digitalWrite(BUZZER_PIN,LOW);
+    delay(50);
+   }
+  
+  else digitalWrite(BUZZER_PIN,LOW);
+   
+}
+
+//function agar tulisan rata tengah (center)
+
+void displayDisplayCenter(String text, int posisi) {
+  int16_t x1;
+  int16_t y1;
+  uint16_t width;
+  uint16_t height;
+
+  display.getTextBounds(text, 0, 0, &x1, &y1, &width, &height);
+
+  display.setCursor((SCREEN_WIDTH - width) / 2, posisi);
+  display.println(text); // text to display
+  display.display();
+}

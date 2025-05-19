@@ -1,1 +1,0 @@
-# Arduino-dan-Sensor-Suhu-DS18B20
