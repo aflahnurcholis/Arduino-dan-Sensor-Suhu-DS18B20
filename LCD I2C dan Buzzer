@@ -1,0 +1,65 @@
+#include <SPI.h>
+#include <Wire.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C LCD = LiquidCrystal_I2C(0x27, 16, 2);
+
+#define SENSOR_PIN A1   // pin sensor DS18B20
+#define BUZZER_PIN 12   // pin buzzer
+
+OneWire oneWire(SENSOR_PIN);         // setup a oneWire 
+DallasTemperature tempSensor(&oneWire); // pass oneWire 
+
+unsigned long previousMillis = 0;
+
+String tempString,tempString1;
+float batas = 35;     // batas suhu biar alarm
+float tempCelsius;
+
+
+void setup() {
+  Serial.begin(9600);
+  LCD.init();
+  LCD.backlight();
+  pinMode(BUZZER_PIN,OUTPUT);
+  digitalWrite(BUZZER_PIN,LOW);
+
+  LCD.clear(); // clear display
+  LCD.setCursor(0,0);
+  LCD.print("Aflah Nurcholis");
+  LCD.setCursor(0,1);
+  LCD.print("*085747272461*");
+
+  tempSensor.begin();     // inisialisasi sensor
+  tempString.reserve(10); // to avoid fragmenting memory when using String
+  delay(5000);
+}
+
+void loop() {
+  tempSensor.requestTemperatures();             // send the command to get temperatures
+  tempCelsius = tempSensor.getTempCByIndex(0);  // read temperature in Celsius
+  Serial.println(tempCelsius); // print the temperature in Celsius to Serial Monitor
+
+  LCD.clear();
+  LCD.setCursor(0,0);
+  LCD.print("Suhu: ");
+  LCD.setCursor(0,1);
+  LCD.print(tempCelsius);
+  LCD.setCursor(6,1);
+  LCD.print("Celcius");
+  delay(500);
+
+  if( tempCelsius >= batas)  //cek alarm vs buzzer
+   {
+
+    digitalWrite(BUZZER_PIN,HIGH);
+    delay(200);
+    digitalWrite(BUZZER_PIN,LOW);
+    delay(50);
+   }
+  
+  else digitalWrite(BUZZER_PIN,LOW);
+   
+}
