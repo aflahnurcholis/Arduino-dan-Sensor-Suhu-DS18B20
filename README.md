@@ -23,10 +23,12 @@ Berikut adalah langkah-langkah untuk melakukan instalasi driver tersebut :
 1. Download File Driver CH340/CH341 >>> [Download DISINI.](https://drive.google.com/file/d/1mjJGaasvh0iiqljNrpCc17mMRMeVlDaC/view)
 2. Hubungkan Hardware Arduino Uno/Nano/Mega ke Laptop/PC/Komputer anda melalui USB.
 3. Ekstrak File yang sudah Ter-download tersebut, kemudian jalankan File tersebut dengan klik kiri 2x.
-4. Kemudian Klik INSTALL seperti tampak pada gambar dibawah ini
-   
+4. Kemudian Klik INSTALL seperti tampak pada gambar dibawah ini:
+
+![Image](https://github.com/user-attachments/assets/f8a4260a-19a2-4e56-8d93-006ff4c8717d)
+
 6. Driver CH340 atau CH341 untuk Arduino sudah Ter-Install dan siap digunakan.
-7. Silahkan digunakan untuk Upload Program dari Arduino IDE ke Board Arduino yang anda miliki.
+7. Silahkan digunakan untuk Upload Program dari Arduino IDE ke Board Arduino yang kalian miliki.
 
 ## Rangkaian Arduino Dan Sensor Suhu DS18b20
 
