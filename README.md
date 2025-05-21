@@ -33,4 +33,4 @@ Berikut adalah langkah-langkah untuk melakukan instalasi driver tersebut :
 ## Rangkaian Arduino Dan Sensor Suhu DS18b20
 
 Setelah Arduino IDE dan Driver siap, maka langkah selanjutnya membuat rangkaian sesuai gambar dibawah :
-
+![Image](https://github.com/user-attachments/assets/856b9f2f-40fc-4108-95c9-c6828490cc5a)
