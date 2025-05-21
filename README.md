@@ -42,6 +42,9 @@ Arduino IDE menggunakan bahasa pemrograman C++ sehingga mudah dipahami. Perlu di
 
 ![Image](https://github.com/user-attachments/assets/3f6731e4-b4eb-4263-8fe7-87f7e2f54eeb)
 
+Kemudian salin dan letakan baris program `dibawah ini` kedalam Arduino IDE.
+> Note: Sketch program dibawah ini sesuai dengan rangkaian di atas, sehingga sesuaikan program dengan kebutuhan saja.
+
 ```
 #include <SPI.h>
 #include <Wire.h>
