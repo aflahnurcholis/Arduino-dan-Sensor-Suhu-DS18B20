@@ -110,4 +110,42 @@ void loop() {
 }
 ```
 
-Copy atau salin sketch program tersebut ke Arduino IDE.
+Copy atau salin sketch program tersebut ke Arduino IDE, kemudian letakan baris program tersebut dalam kotak sketch seperti gambar dibawah ini
+![Image](https://github.com/user-attachments/assets/7c6a45b2-c531-462d-ad3a-772a9b3b6cb9)
+
+Program tersebut dapat di"Verify" untuk mengecek apakah program tersebut dapat bekerja dengan baik ketika di"Upload" ke mikrokontroler Arduino.
+Tombol "Verify" terdapat pada bawah tools box, seperti gambar berikut :
+![Image](https://github.com/user-attachments/assets/4d590023-c602-4c90-a5f0-006d71e98ddc)
+
+Pastikan sebelum melakukan "Verify" dan "Upload" program, lakukan pemilihan board Arduino Uno. Lakukan langkah berikut :
+- Klik menu "Tools"
+- Pilih "Board"
+- Pilih "Arduino AVR Boards"
+- Terakhir pilih jenis Arduino yang dipakai, contoh "Arduino Uno"
+Lebih jelas nya silahkan cek pada gambar dibawah ini
+![Image](https://github.com/user-attachments/assets/5fdee65d-c5b4-4a47-80c9-d0fc6e477c16)
+
+Setelah board dipilih, langkah selanjutnya adalah menentukan port usb yang dipakai, itulah sebabnya perlu melakukan penginstalan driver CH340 seperti gambar dibawah ini 
+> Note : Bagi kalian yang menggunakan arduino uno versi resmi dari arduino tidak perlu melakukan penginstalan driver
+![image](https://github.com/user-attachments/assets/0f9fbdee-2510-4d68-9afa-18dcf8f77f4a)
+
+Untuk mengecek COM Port USB yang terhubung dengan Arduino lakukan langkah berikut
+- Klik menu "Tools"
+- Pilih "Port"
+- Kemudian pilih Port USB yang sesuai, contoh "COM3"
+- Apabila terdapat lebih dari 1 COM Port tersedia, perlu melakukan pengecekan pada "Device Manager" kalian seperti pada gambar dibawah
+![image](https://github.com/user-attachments/assets/0a99bc1c-9ad2-4ddc-9df7-4e76ffc2cab8)
+- COM Port pada contoh diatas berada di COM123 dengan keterangan lengkap `"USB-SERIAL CH340 (COM123)"`
+
+Setelah langkah pemilihan Boards dan Port selesai dilakukan, maka akan muncul keterangan pada menu Tools seperti berikut,
+![image](https://github.com/user-attachments/assets/3bb14459-29f5-4366-a917-e0f052303671)
+Boards telah dipilih yaitu "Arduino Uno" dan Port yang dipilih "COM6" sebagai contoh seperti gambar diatas.
+> Note : Serial COM Port USB dapat berbeda-beda antara komputer satu dengan yang lainnya.
+
+# Upload Program Arduino IDE ke Arduino UNO #
+
+Program yang sudah ditulis dan di"Verify" dengan benar, selanjutnya di"Upload" supaya arduino sebagai mikrokontrol yang digunakan dapat digunakan sesuai instruksi pada program yang telah dibuat. Tombol "Upload" terdapat pada bagian sebelah tombol "Verify", dengan gambar anak panah.
+![image](https://github.com/user-attachments/assets/7feb6ccd-2c59-43f8-b8a3-98a7ca0e070e)
+Gambar diatas menunjukan proses "Upload" program ke dalam Arduino Uno, keterangan program sukses ter"Upload" terdapat pada kotak dialog "Output" pada bagian bawah interface Arduino IDE.
+
+
