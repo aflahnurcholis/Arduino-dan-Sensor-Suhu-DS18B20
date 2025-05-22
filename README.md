@@ -15,6 +15,8 @@ Pertama, dalam membuat program Arduino dan Sensor Suhu DS18b20 diperlukan bebera
 Download Arduino IDE versi 2 melalui link berikut [Arduino IDE](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing/). Pastikan Arduino yang dipilih sesuai spesifikasi PC atau Laptop yang kalian miliki.
 Instal Arduino IDE yang telah terdownload.
 Nb : Pastikan terkoneksi dengan internet atau WiFi, karena pada saat penginstalan Arduino IDE akan melakukan pengunduhan beberapa library dan Board.
+![image](https://github.com/user-attachments/assets/5b21bc15-5a1c-45cf-99d7-a84621caeffe)
+
 
 ## Instalasi driver CH340
 
