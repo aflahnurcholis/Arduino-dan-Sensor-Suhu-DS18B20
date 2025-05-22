@@ -46,9 +46,11 @@ Kemudian salin dan letakan baris program `dibawah ini` kedalam Arduino IDE.
 > Note: Sketch program dibawah ini sesuai dengan rangkaian di atas, sehingga sesuaikan program dengan kebutuhan saja.
 
 ```
+/*==Jika tidak menggunakan beberapa komponen dan library, pastikan "comment" program dengan menambahakan "//" pada awal baris program yang tidak di inginkan.
+==/*
 #include <SPI.h>
 #include <Wire.h>
-#include <OneWire.h>
+#include <OneWire.h> // Library dapat diunduh melalui library manager
 #include <DallasTemperature.h> //Library dapat diunduh melalui library manager
 #include <LiquidCrystal_I2C.h> //Library dapat diunduh melalui library manager
 
