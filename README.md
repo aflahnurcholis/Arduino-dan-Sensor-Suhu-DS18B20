@@ -49,7 +49,7 @@ Kemudian salin dan letakan baris program `dibawah ini` kedalam Arduino IDE.
 
 ```
 /*==Jika tidak menggunakan beberapa komponen dan library, pastikan "comment" program dengan menambahakan "//" pada awal baris program yang tidak di inginkan.
-==/*
+==*/
 #include <SPI.h>
 #include <Wire.h>
 #include <OneWire.h> // Library dapat diunduh melalui library manager
